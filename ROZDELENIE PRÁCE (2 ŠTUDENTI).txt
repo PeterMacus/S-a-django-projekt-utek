@@ -1,0 +1,139 @@
+ROZDELENIE PRÁCE (2 ŠTUDENTI)
+
+Študent A (Backend + logika):
+
+Django projekt setup
+Modely (Student, Team, Competition, Teacher, TeamMembership, CompetitionRegistration)
+Migrácie a databáza
+CRUD operácie (views, forms, serializers)
+Autentifikácia a roly
+Business logika (priraďovanie, registrácie)
+
+Študent B (Frontend + UX + nasadenie):
+
+Django templates alebo frontend (HTML, CSS, JS)
+UI pre CRUD operácie
+Zobrazenia (zoznamy, detaily)
+Filtrovanie a vyhľadávanie
+Prepojenie na backend
+Nasadenie aplikácie (Render / Railway / iné)
+README a dokumentácia
+
+Spoločná práca:
+
+návrh databázy
+testovanie
+debugging
+prezentácia
+PLÁN NA 5 TROJHODINOVIEK
+trojhodinovka (Analýza + základ projektu)
+
+Cieľ:
+
+pochopiť zadanie
+vytvoriť základ projektu
+
+Úlohy:
+
+návrh modelov (papier / diagram)
+vytvorenie Django projektu
+vytvorenie app (napr. "core")
+definovanie modelov:
+Student
+Team
+Competition
+Teacher
+TeamMembership (M)
+
+Výstup:
+
+bežiaci Django projekt
+definované modely
+trojhodinovka (Databáza + Admin + základ CRUD)
+
+Cieľ:
+
+funkčná databáza
+základné operácie
+
+Úlohy:
+
+migrácie
+registrácia modelov do Django admin
+vytvorenie superusera
+základné CRUD cez admin
+začiatok views (List/Create)
+
+Výstup:
+
+funkčný admin panel
+uložené dáta
+trojhodinovka (Views + formuláre + logika)
+
+Cieľ:
+
+funkčné operácie v aplikácii
+
+Úlohy:
+
+vytvoriť views:
+Student CRUD
+Team CRUD
+Competition CRUD
+formuláre (ModelForms)
+priradenie študenta do tímu
+odobratie študenta z tímu
+
+Výstup:
+
+funkčné CRUD cez web
+trojhodinovka (Pokročilé funkcie + filtrovanie)
+
+Cieľ:
+
+splniť pokročilé požiadavky
+
+Úlohy:
+
+registrácia tímu do súťaže
+zobrazenie:
+členov tímu
+súťaží tímu
+filtrovanie:
+podľa triedy
+podľa názvu tímu
+podľa typu súťaže
+podľa dátumu
+autentifikácia:
+login/logout
+roly (admin/user)
+
+Výstup:
+
+kompletná funkcionalita
+trojhodinovka (Frontend + nasadenie + odovzdanie)
+
+Cieľ:
+
+dokončenie projektu
+
+Úlohy:
+
+UI vylepšenie (CSS, Bootstrap)
+testovanie
+oprava chýb
+nasadenie (Render / Railway)
+GitHub repo:
+commit všetkého
+README
+dokumentácia:
+popis projektu
+modely
+použitie
+príprava prezentácie
+
+Výstup:
+
+online aplikácia
+Git repo
+dokumentácia
