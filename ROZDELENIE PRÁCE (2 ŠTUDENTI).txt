@@ -1,139 +1,128 @@
-ROZDELENIE PRÁCE (2 ŠTUDENTI)
+👨‍💻 Študent A – Backend & logika(Peter Macúš)
 
-Študent A (Backend + logika):
+Zodpovedá za dátovú a aplikačnú vrstvu:
 
-Django projekt setup
-Modely (Student, Team, Competition, Teacher, TeamMembership, CompetitionRegistration)
-Migrácie a databáza
-CRUD operácie (views, forms, serializers)
-Autentifikácia a roly
-Business logika (priraďovanie, registrácie)
+vytvorenie Django projektu a app
+návrh a implementácia modelov:
+Student
+Team
+Competition
+Teacher
+TeamMembership
+CompetitionRegistration
+databáza a migrácie
+CRUD operácie (views, forms, prípadne serializers)
+implementácia business logiky:
+priraďovanie študentov do tímov
+registrácia tímov do súťaží
+autentifikácia a používateľské roly
 
-Študent B (Frontend + UX + nasadenie):
+🎨 Študent B – Frontend, UX & nasadenie(Samuel Škuta)
 
-Django templates alebo frontend (HTML, CSS, JS)
-UI pre CRUD operácie
-Zobrazenia (zoznamy, detaily)
-Filtrovanie a vyhľadávanie
-Prepojenie na backend
-Nasadenie aplikácie (Render / Railway / iné)
-README a dokumentácia
+Zodpovedá za používateľské rozhranie a finálne odovzdanie:
 
-Spoločná práca:
+tvorba frontend vrstvy (Django templates / HTML, CSS, JS)
+návrh a implementácia UI pre CRUD operácie
+stránky:
+zoznamy (list views)
+detaily (detail views)
+filtrovanie a vyhľadávanie
+prepojenie frontend ↔ backend
+nasadenie aplikácie (Render / Railway / iné)
+dokumentácia:
+README
+popis použitia
 
-návrh databázy
-testovanie
+🤝 Spoločná práca
+návrh databázy (ER diagram)
+testovanie funkcionality
 debugging
-prezentácia
-PLÁN NA 5 TROJHODINOVIEK
-trojhodinovka (Analýza + základ projektu)
+príprava a realizácia prezentácie
+📅 Plán na 5 trojhodinoviek
 
-Cieľ:
-
+1️⃣ trojhodinovka – Analýza & základ projektu
+🎯 Cieľ:
 pochopiť zadanie
-vytvoriť základ projektu
-
-Úlohy:
-
-návrh modelov (papier / diagram)
+pripraviť základ projektu
+✅ Úlohy:
+návrh databázy (papier / diagram)
 vytvorenie Django projektu
-vytvorenie app (napr. "core")
+vytvorenie aplikácie (napr. core)
 definovanie modelov:
 Student
 Team
 Competition
 Teacher
-TeamMembership (M)
-
-Výstup:
-
+TeamMembership
+📦 Výstup:
 bežiaci Django projekt
-definované modely
-trojhodinovka (Databáza + Admin + základ CRUD)
+základné modely
 
-Cieľ:
-
-funkčná databáza
-základné operácie
-
-Úlohy:
-
-migrácie
+2️⃣ trojhodinovka – Databáza, Admin & základ CRUD
+🎯 Cieľ:
+mať funkčnú databázu
+zvládnuť základné operácie
+✅ Úlohy:
+migrácie databázy
 registrácia modelov do Django admin
 vytvorenie superusera
-základné CRUD cez admin
-začiatok views (List/Create)
-
-Výstup:
-
+testovanie CRUD operácií cez admin
+začiatok implementácie views (List, Create)
+📦 Výstup:
 funkčný admin panel
-uložené dáta
-trojhodinovka (Views + formuláre + logika)
+uložené a spravované dáta
 
-Cieľ:
-
-funkčné operácie v aplikácii
-
-Úlohy:
-
-vytvoriť views:
-Student CRUD
-Team CRUD
-Competition CRUD
-formuláre (ModelForms)
-priradenie študenta do tímu
+3️⃣ trojhodinovka – Views, formuláre & logika
+🎯 Cieľ:
+sprevádzkovať aplikáciu cez web rozhranie
+✅ Úlohy:
+implementácia CRUD views:
+Student
+Team
+Competition
+vytvorenie formulárov (ModelForms)
+implementácia logiky:
+pridanie študenta do tímu
 odobratie študenta z tímu
+📦 Výstup:
+funkčné CRUD operácie cez web
 
-Výstup:
-
-funkčné CRUD cez web
-trojhodinovka (Pokročilé funkcie + filtrovanie)
-
-Cieľ:
-
-splniť pokročilé požiadavky
-
-Úlohy:
-
+4️⃣ trojhodinovka – Pokročilé funkcie & filtrovanie
+🎯 Cieľ:
+doplniť pokročilú funkcionalitu
+✅ Úlohy:
 registrácia tímu do súťaže
-zobrazenie:
-členov tímu
-súťaží tímu
+zobrazenia:
+členovia tímu
+súťaže tímu
 filtrovanie:
 podľa triedy
 podľa názvu tímu
 podľa typu súťaže
 podľa dátumu
 autentifikácia:
-login/logout
-roly (admin/user)
+login / logout
+roly (admin / user)
+📦 Výstup:
+kompletná funkcionalita aplikácie
 
-Výstup:
-
-kompletná funkcionalita
-trojhodinovka (Frontend + nasadenie + odovzdanie)
-
-Cieľ:
-
-dokončenie projektu
-
-Úlohy:
-
-UI vylepšenie (CSS, Bootstrap)
-testovanie
+5️⃣ trojhodinovka – Frontend, nasadenie & odovzdanie
+🎯 Cieľ:
+dokončiť projekt a pripraviť odovzdanie
+✅ Úlohy:
+vylepšenie UI (CSS, Bootstrap)
+testovanie aplikácie
 oprava chýb
 nasadenie (Render / Railway)
-GitHub repo:
-commit všetkého
+GitHub repozitár:
+commit všetkého kódu
 README
 dokumentácia:
 popis projektu
 modely
-použitie
+návod na použitie
 príprava prezentácie
-
-Výstup:
-
-online aplikácia
-Git repo
-dokumentácia
+📦 Výstup:
+nasadená (online) aplikácia
+Git repository
+kompletná dokumentácia
