@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-dark text-white">
+        <h3 class="mb-0">{{ team.nazov_timu }}</h3>
+    </div>
+    <div class="card-body">
+        <p><strong>Popis:</strong> {{ team.popis }}</p>
+        <p><strong>Vedúci tímu:</strong> {{ team.veduci_timu }}</p>
+        <p><strong>Dátum vytvorenia:</strong> {{ team.datum_vytvorenia|date:"d.m.Y" }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h4 class="mb-0">Členovia tímu</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for membership in team.teammembership_set.all %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        {{ membership.student.meno }} {{ membership.student.priezvisko }}
+                        <span class="badge bg-secondary">{{ membership.rola_v_time }}</span>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">V tomto tíme zatiaľ nie sú žiadni študenti.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h4 class="mb-0">Prihlásené súťaže</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for registration in team.competitionregistration_set.all %}
+                    <li class="list-group-item">
+                        {{ registration.competition.nazov_sutaze }} 
+                        <span class="badge {% if registration.stav_registracie == 'Schválená' %}bg-success{% else %}bg-warning{% endif %}">
+                            {{ registration.stav_registracie }}
+                        </span>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">Tím nie je prihlásený do žiadnej súťaže.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

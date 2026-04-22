@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Zoznam študentov</h2>
+    <a href="#" class="btn btn-success">+ Pridať študenta</a>
+</div>
+
+<form method="GET" class="row g-3 mb-4">
+    <div class="col-auto">
+        <input type="text" name="trieda" class="form-control" placeholder="Filtrovať podľa triedy..." value="{{ request.GET.trieda }}">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Filtrovať</button>
+    </div>
+</form>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Meno a Priezvisko</th>
+                    <th>Trieda</th>
+                    <th>Email</th>
+                    <th>Akcie</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in object_list %}
+                <tr>
+                    <td>{{ student.meno }} {{ student.priezvisko }}</td>
+                    <td>{{ student.trieda }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-outline-info">Detail</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center py-3">Zatiaľ neboli pridaní žiadni študenti.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
