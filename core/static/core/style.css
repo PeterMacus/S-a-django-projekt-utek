@@ -1,0 +1,17 @@
+.navbar {
+    border-bottom: 3px solid #0056b3;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.jumbotron {
+    padding: 2rem 1rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}
