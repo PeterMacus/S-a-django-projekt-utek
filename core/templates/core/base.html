@@ -17,6 +17,12 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'student_list' %}">Študenti</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'team_list' %}">Tímy</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'competition_list' %}">Súťaže</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><span class="nav-link text-light">👤 {{ user.username }}</span></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Odhlásiť</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Prihlásiť</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

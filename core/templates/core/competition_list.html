@@ -3,8 +3,16 @@
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2>Zoznam súťaží</h2>
-    <a href="{% url 'competition_create' %}" class="btn btn-success">+ Pridať súťaž</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'competition_create' %}" class="btn btn-success">+ Pridať súťaž</a>
+    {% endif %}
 </div>
+
+<form method="get" class="d-flex gap-2 mb-3">
+    <input type="text" name="typ" class="form-control" placeholder="Filtrovať podľa typu..." value="{{ request.GET.typ }}">
+    <input type="date" name="datum" class="form-control" value="{{ request.GET.datum }}">
+    <button type="submit" class="btn btn-primary">Filtrovať</button>
+</form>
 
 <div class="card shadow-sm">
     <div class="card-body p-0">
