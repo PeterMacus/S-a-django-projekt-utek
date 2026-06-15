@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="jumbotron text-center shadow">
+    <h1 class="display-4">Vitajte v systéme správy súťaží!</h1>
+    <p class="lead">Tento systém slúži na evidenciu študentov, tímov a ich registráciu do školských súťaží.</p>
+    <hr class="my-4">
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <h3>Študenti</h3>
+            <p>Spravujte zoznam zapojených študentov.</p>
+            <a class="btn btn-primary" href="{% url 'student_list' %}">Zobraziť študentov</a>
+        </div>
+        <div class="col-md-4">
+            <h3>Tímy</h3>
+            <p>Vytvárajte tímy a priraďujte členov.</p>
+            <a class="btn btn-primary" href="{% url 'team_list' %}">Zobraziť tímy</a>
+        </div>
+        <div class="col-md-4">
+            <h3>Súťaže</h3>
+            <p>Prehľad nadchádzajúcich podujatí.</p>
+            <a class="btn btn-primary" href="{% url 'competition_list' %}">Zobraziť súťaže</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

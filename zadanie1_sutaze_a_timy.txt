@@ -1,0 +1,145 @@
+Zadanie 1: Webová aplikácia „Správa školských súťaží a tímov“
+
+Cieľ projektu
+
+Vytvorte webovú aplikáciu pre školu, ktorá bude slúžiť na evidenciu súťaží, súťažných tímov a študentov, ktorí sa do nich zapájajú.
+
+Backend musí byť vytvorený v Django.
+Frontend je ľubovoľný.
+
+Aplikácia musí byť na konci projektu nasadená online na free platforme.
+
+Opis aplikácie
+
+Škola organizuje rôzne odborné, športové alebo vedomostné súťaže. Potrebuje systém, v ktorom bude možné:
+
+- evidovať súťaže
+- evidovať tímy
+- evidovať študentov
+- priraďovať študentov do tímov
+- prihlasovať tímy do súťaží
+- zobrazovať prehľady tímov a súťaží
+- filtrovať údaje podľa typu súťaže, termínu alebo triedy
+
+Povinné modely
+
+1. Student
+- meno
+- priezvisko
+- email
+- trieda
+- dátum narodenia
+
+2. Team
+- názov tímu
+- popis
+- vedúci tímu
+- dátum vytvorenia
+
+3. Competition
+- názov súťaže
+- popis
+- dátum konania
+- miesto
+- typ súťaže
+- maximálny počet tímov
+
+4. Teacher alebo Organizer
+- meno
+- priezvisko
+- email
+- funkcia
+
+Povinný M:N vzťah
+
+V projekte musí byť aspoň jeden vzťah M:N.
+
+Povinné riešenie:
+Student ↔ Team
+
+Odporúčané riešenie cez model TeamMembership
+- student
+- team
+- rola v tíme
+- dátum pridania
+- poznámka
+
+Voliteľne môžete pridať aj:
+Team ↔ Competition
+
+cez model CompetitionRegistration
+- team
+- competition
+- dátum registrácie
+- stav registrácie
+
+Povinné funkcionality
+
+Aplikácia musí umožňovať:
+
+CRUD operácie
+
+Minimálne pre:
+- Student
+- Team
+- Competition
+
+Práca s tímami a súťažami
+- vytvoriť tím
+- pridať študenta do tímu
+- odobrať študenta z tímu
+- prihlásiť tím do súťaže
+- zobraziť členov tímu
+- zobraziť, v ktorých súťažiach je tím prihlásený
+
+Vyhľadávanie a filtrovanie
+- podľa triedy
+- podľa názvu tímu
+- podľa typu súťaže
+- podľa dátumu súťaže
+
+Prihlásenie používateľa
+
+Minimálne 2 roly:
+- admin / organizátor
+- bežný používateľ
+
+API alebo frontend
+
+Musí byť splnená aspoň jedna možnosť:
+
+Možnosť A
+Frontend cez Django templates + aspoň jednoduché API pre jednu časť aplikácie
+
+Možnosť B
+Oddelený frontend a backend cez REST API
+
+Povinné nasadenie
+
+Projekt musí byť nasadený online.
+
+Odporúčané riešenie:
+- Django backend
+- databáza PostgreSQL
+- frontend ako samostatná statická aplikácia alebo priamo Django templates
+
+Povinné odovzdanie
+- URL na Git repozitár
+- URL na nasadenú aplikáciu
+- README
+- stručná dokumentácia
+- prezentácia projektu
+
+Spoločné požiadavky pre všetky zadania
+
+Každý projekt musí obsahovať:
+- backend v Django
+- databázové modely a migrácie
+- aspoň jeden vzťah M:N
+- CRUD operácie nad hlavnými entitami
+- autentifikáciu používateľa
+- minimálne 2 používateľské roly
+- filtrovanie alebo vyhľadávanie
+- Git repozitár
+- README
+- nasadenie na free platforme

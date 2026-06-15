@@ -1,0 +1,81 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-dark text-white">
+        <h3 class="mb-0">{{ team.nazov_timu }}</h3>
+    </div>
+    <div class="card-body">
+        <p><strong>Popis:</strong> {{ team.popis }}</p>
+        <p><strong>Vedúci tímu:</strong> {{ team.veduci_timu }}</p>
+        <p><strong>Dátum vytvorenia:</strong> {{ team.datum_vytvorenia|date:"d.m.Y" }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h4 class="mb-0">Členovia tímu</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for membership in team.teammembership_set.all %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ membership.student.meno }} {{ membership.student.priezvisko }}
+                        <div>
+                            <span class="badge bg-secondary me-2">{{ membership.rola_v_time }}</span>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'remove_from_team' team.pk membership.student.pk %}" class="btn btn-sm btn-outline-danger">Odstrániť</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">V tomto tíme zatiaľ nie sú žiadni študenti.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="card shadow-sm mt-3">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">Pridať študenta do tímu</h5>
+            </div>
+            <div class="card-body">
+                <select id="studentSelect" class="form-select mb-2">
+                    {% for student in all_students %}
+                        <option value="{{ student.pk }}">{{ student.meno }} {{ student.priezvisko }} ({{ student.trieda }})</option>
+                    {% endfor %}
+                </select>
+                <button onclick="window.location='/timy/{{ team.pk }}/pridaj/' + document.getElementById('studentSelect').value + '/'" class="btn btn-primary">Pridať</button>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h4 class="mb-0">Prihlásené súťaže</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for registration in team.competitionregistration_set.all %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ registration.competition.nazov_sutaze }}
+                        <span class="badge {% if registration.stav_registracie == 'Schválená' %}bg-success{% else %}bg-warning text-dark{% endif %}">
+                            {{ registration.stav_registracie }}
+                        </span>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item">Tím nie je prihlásený do žiadnej súťaže.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="mt-3">
+            <a href="{% url 'register_team' team.pk %}" class="btn btn-success">+ Registrovať do súťaže</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
