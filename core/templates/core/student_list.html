@@ -23,7 +23,7 @@
                     <th>Meno a Priezvisko</th>
                     <th>Trieda</th>
                     <th>Email</th>
-                    <th>Akcie</th>
+                    {% if user.is_authenticated %}<th>Akcie</th>{% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -32,12 +32,12 @@
                     <td>{{ student.meno }} {{ student.priezvisko }}</td>
                     <td>{{ student.trieda }}</td>
                     <td>{{ student.email }}</td>
+                    {% if user.is_authenticated %}
                     <td>
-                        {% if user.is_authenticated %}
                         <a href="{% url 'student_update' student.pk %}" class="btn btn-sm btn-outline-warning">Upraviť</a>
                         <a href="{% url 'student_delete' student.pk %}" class="btn btn-sm btn-outline-danger">Zmazať</a>
-                        {% endif %}
                     </td>
+                    {% endif %}
                 </tr>
                 {% empty %}
                 <tr>
